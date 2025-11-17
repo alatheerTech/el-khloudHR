@@ -9,7 +9,7 @@ import '../../../../core/utils/constants.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../../../core/widgets/custom_circle_clipper.dart';
 import '../../../../core/widgets/custom_elevated_container.dart';
-import '../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../../Splash/presentation/manger/locale_cubit/locale_cubit.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});

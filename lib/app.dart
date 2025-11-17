@@ -8,7 +8,7 @@ import 'package:qimam/core/utils/constants.dart';
 
 import 'Features/auth/fire_base_token/presentation/manger/token_cubit.dart';
 import 'Features/bottom_nav/presentation/manger/cubit/bottom_nav_cubit.dart';
-import 'Features/splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import 'Features/Splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import 'Features/table/presentation/manager/cubit/pick_date_cubit.dart';
 import 'core/locale/app_localizations_setup.dart';
 import 'core/utils/functions/setup_service_locator.dart';
@@ -38,7 +38,6 @@ class FingerPrint extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<PickDateCubit>(),
         ),
-      
         BlocProvider(
           create: (_) => getIt<NewFingerPrintCubit>(),
         ),

@@ -50,14 +50,13 @@ import '../../../Features/ezen/presentation/screens/status_request_ezen_screen.d
 import '../../../Features/personal_account/presentation/views/personal_account_screen.dart';
 import '../../../Features/request_dept/presentation/screens/request_dept_screen.dart';
 import '../../../Features/select_file/presentation/screens/request_vacation_screen.dart';
-import '../../../Features/splash/presentation/views/connection_page.dart';
-import '../../../Features/splash/presentation/views/splash_view.dart';
+import '../../../Features/Splash/presentation/views/connection_page.dart';
+import '../../../Features/Splash/presentation/views/splash_view.dart';
 import '../../../Features/table/presentation/screens/table_screen.dart';
 import 'package:qimam/Features/location_vacation/presentation/manager/location_vacation_cubit/location_vacation_cubit.dart';
 import 'package:qimam/Features/location_vacation/presentation/screens/location_vacation_screen.dart';
 
 import '../constants.dart';
-
 
 class AppRoutes {
   static Route? onGenerateRoute(RouteSettings routeSettings) {
@@ -132,7 +131,6 @@ class AppRoutes {
           ),
         );
 
-    
       // case kAttendanceScreen:
       //   return MaterialPageRoute(
       //     builder: (_) => const HomeScreen(),
@@ -293,14 +291,13 @@ class AppRoutes {
           builder: (_) => VisitDetailsScreen(visits: args as VisitEntity),
         );
 
-case kLocationVacationScreenRoute:
-  return MaterialPageRoute(
-    builder: (_) => BlocProvider(
-      create: (_) => getIt<LocationVacationCubit>(),
-      child: const LocationVacationScreen(),
-    ),
-  );
-
+      case kLocationVacationScreenRoute:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<LocationVacationCubit>(),
+            child: const LocationVacationScreen(),
+          ),
+        );
 
       default:
         return null;

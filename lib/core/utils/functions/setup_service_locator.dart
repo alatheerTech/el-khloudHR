@@ -261,13 +261,13 @@ import '../../../Features/notification_view/presentation/manager/all_talabat_cub
 import '../../../Features/rates/data/repositories/rate_repo_impl.dart';
 import '../../../Features/rates/presentation/cubit/types_rate_cubit/types_rate_cubit.dart';
 import '../../../Features/select_file/presentation/cubit/select_file_cubit.dart';
-import '../../../Features/splash/data/datasources/language_local_data_source.dart';
-import '../../../Features/splash/data/datasources/language_local_data_source_impl.dart';
-import '../../../Features/splash/data/repositories/language_repository_impl.dart';
-import '../../../Features/splash/domain/repositories/language_repository.dart';
-import '../../../Features/splash/domain/use_case/change_locale_use_case.dart';
-import '../../../Features/splash/domain/use_case/get_saved_lang_use_case.dart';
-import '../../../Features/splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../../Features/Splash/data/datasources/language_local_data_source.dart';
+import '../../../Features/Splash/data/datasources/language_local_data_source_impl.dart';
+import '../../../Features/Splash/data/repositories/language_repository_impl.dart';
+import '../../../Features/Splash/domain/repositories/language_repository.dart';
+import '../../../Features/Splash/domain/use_case/change_locale_use_case.dart';
+import '../../../Features/Splash/domain/use_case/get_saved_lang_use_case.dart';
+import '../../../Features/Splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import '../../../Features/table/data/data_sources/table_remote_data_source/table_remote_data_source.dart';
 import '../../../Features/table/data/repository/table_repo_implementation.dart';
 import '../../../Features/table/domain/repositories/table_repository.dart';
@@ -288,14 +288,12 @@ import '../../../Features/wathaek/presentation/manager/add_wathaek_cubit/add_wat
 import '../../../Features/wathaek/presentation/manager/all_wathaek_cubit/all_wathaek_cubit.dart';
 import '../../../Features/wathaek/presentation/manager/delete_wathaek_cubit/delete_wathaek_cubit.dart';
 
-
-
 import '../network/network_request.dart';
 
 final getIt = GetIt.instance;
 Future<void> init() async {
   final sharedPreferences = await SharedPreferences.getInstance();
-getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+  getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 
   getIt.registerFactory<LocaleCubit>(() => LocaleCubit(
       changeLocaleUseCase: getIt.call(), getSavedLangUseCase: getIt.call()));
@@ -872,10 +870,7 @@ getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 
   getIt.registerLazySingleton<EgraaVacationRemoteDataSource>(
       () => EgraaVacationRemoteDataSourceImpl());
-  
 
-
-  
   ///
   ///
   ///Ehsaeyat
@@ -1019,29 +1014,23 @@ getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
       () => TypesRateRemoteDataSourceImpl());
 
 // Remote Data Source
-getIt.registerLazySingleton<LocationVacationRemoteDataSource>(
-  () => LocationVacationRemoteDataSourceImpl(),
-);
+  getIt.registerLazySingleton<LocationVacationRemoteDataSource>(
+    () => LocationVacationRemoteDataSourceImpl(),
+  );
 
-
-getIt.registerLazySingleton<LocationVacationRepo>(
-  () => LocationVacationRepoImpl(
-    remoteDataSource: getIt<LocationVacationRemoteDataSource>(),
-  ),
-);
-
+  getIt.registerLazySingleton<LocationVacationRepo>(
+    () => LocationVacationRepoImpl(
+      remoteDataSource: getIt<LocationVacationRemoteDataSource>(),
+    ),
+  );
 
 // Use Case
-getIt.registerLazySingleton<LocationVacationUseCase>(
-  () => LocationVacationUseCase(getIt<LocationVacationRepo>()),
-);
+  getIt.registerLazySingleton<LocationVacationUseCase>(
+    () => LocationVacationUseCase(getIt<LocationVacationRepo>()),
+  );
 
 // Cubit
-getIt.registerFactory<LocationVacationCubit>(
-  () => LocationVacationCubit(getIt<LocationVacationUseCase>()),
-);
-
-
-
-
+  getIt.registerFactory<LocationVacationCubit>(
+    () => LocationVacationCubit(getIt<LocationVacationUseCase>()),
+  );
 }
