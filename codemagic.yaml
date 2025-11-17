@@ -1,0 +1,39 @@
+workflows:
+  ios-workflow:
+    name: iOS Release to TestFlight
+    max_build_duration: 120
+    instance_type: mac_m2_mini
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - push
+        - tag
+      branch_patterns:
+        - pattern: '**'
+    scripts:
+      - name: Clean & Fresh CocoaPods Install
+        script: |
+          echo "=== حذف كل آثار CocoaPods القديمة ==="
+          cd ios
+          rm -f Podfile.lock
+          rm -rf Pods
+          rm -rf ~/Library/Caches/CocoaPods
+          pod repo update
+          pod install --repo-update
+      - name: Build iOS Release
+        script: |
+          flutter pub get
+          flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - mido10sb@gmail.com
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store_review: false
