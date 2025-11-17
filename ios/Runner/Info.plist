@@ -33,8 +33,11 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+
+	<!-- تم تعديل هذا السطر من NO إلى true (أو احذفه خالص لو حابب) -->
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<string>NO</string>
+	<true/>
+
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechromes</string>
@@ -42,13 +45,18 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+
+	<!-- ATS كامل ومظبوط -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
 	</dict>
+
 	<key>NSCameraUsageDescription</key>
-	<string>This app requires access to your camera if you want to update your profile picture and show the photo within your profile.</string>
+	<string>التطبيق يحتاج الكاميرا لتسجيل الحضور والانصراف وتحديث الصورة الشخصية.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>$(PRODUCT_NAME) contact use</string>
 	<key>NSLocationAlwaysAndWhenInUsageDescription</key>
@@ -56,15 +64,16 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Usage Description</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app needs access to location when in the background.</string>
+	<string>التطبيق يحتاج الموقع في الخلفية لتسجيل الحضور بدقة.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to location when open So you can register attendance.</string>
+	<string>التطبيق يحتاج الموقع أثناء الاستخدام لتسجيل الحضور والانصراف.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>This app requires to access your microphone to record video with your voice send via chat.</string>
+	<string>التطبيق يحتاج الميكروفون لتسجيل فيديو بالصوت في المحادثات.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We need permission to save downloaded files.</string>
+	<string>نحتاج الإذن لحفظ الملفات المحملة.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires to access your photo library to show image on profile.</string>
+	<string>التطبيق يحتاج معرض الصور لاختيار صورة الملف الشخصي.</string>
+
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
